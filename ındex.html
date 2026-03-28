@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miran AI - Asistan</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1e1e1e; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        #chat-container { width: 400px; height: 600px; background: #2d2d2d; border-radius: 15px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        #messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 10px 15px; border-radius: 10px; max-width: 80%; }
+        .user { background: #007bff; align-self: flex-end; }
+        .ai { background: #444; align-self: flex-start; }
+        #input-area { display: flex; padding: 10px; background: #333; }
+        input { flex: 1; padding: 10px; border: none; border-radius: 5px; outline: none; }
+        button { margin-left: 10px; padding: 10px 20px; border: none; background: #007bff; color: white; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <div id="messages">
+        <div class="message ai">Merhaba Miran! Bugün sana nasıl yardımcı olabilirim?</div>
+    </div>
+    <div id="input-area">
+        <input type="text" id="userInput" placeholder="Sorunu buraya yaz...">
+        <button onclick="sendMessage()">Gönder</button>
+    </div>
+</div>
+
+<script>
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const messages = document.getElementById('messages');
+        
+        if (input.value.trim() === "") return;
+
+        // Kullanıcı mesajını ekrana ekle
+        messages.innerHTML += `<div class="message user">${input.value}</div>`;
+        const userText = input.value;
+        input.value = "";
+
+        // AI Yanıtı simülasyonu (Gerçek bir yapay zeka için buraya API bağlanmalı)
+        setTimeout(() => {
+            messages.innerHTML += `<div class="message ai">Şu an bir demo sürümündeyim. Gerçek yanıtlar için bir API anahtarı bağlamalısın!</div>`;
+            messages.scrollTop = messages.scrollHeight;
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
