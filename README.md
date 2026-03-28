@@ -1,0 +1,2 @@
+# MiranAI
+yapay zeka 
